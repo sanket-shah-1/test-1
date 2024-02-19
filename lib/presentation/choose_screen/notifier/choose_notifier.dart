@@ -1,0 +1,5 @@
+import 'package:equatable/equatable.dart';import '../../../core/app_export.dart';import '../models/choose_model.dart';import '../models/choosegrid_item_model.dart';part 'choose_state.dart';final chooseNotifier = StateNotifierProvider<ChooseNotifier, ChooseState>((ref) => ChooseNotifier(ChooseState(chooseModelObj: ChooseModel(choosegridItemList: [ChoosegridItemModel(livingroom: ImageConstant.imgGroup, livingRoom: "Living room"), ChoosegridItemModel(livingroom: ImageConstant.imgLightBulb, livingRoom: "Kitchen"), ChoosegridItemModel(livingroom: ImageConstant.imgBusinessAndTrade, livingRoom: "Office"), ChoosegridItemModel(livingroom: ImageConstant.imgDoubleBed1, livingRoom: "Bedroom"), ChoosegridItemModel(livingroom: ImageConstant.imgFlag, livingRoom: "Bathroom"), ChoosegridItemModel(livingroom: ImageConstant.imgDiningTable1, livingRoom: "Dining room")]))));
+/// A notifier that manages the state of a Choose according to the event that is dispatched to it.
+class ChooseNotifier extends StateNotifier<ChooseState> {ChooseNotifier(ChooseState state) : super(state);
+
+ }

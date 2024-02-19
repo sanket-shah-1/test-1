@@ -1,0 +1,8 @@
+import '../../../core/app_export.dart';import '../models/historylist_item_model.dart';
+// ignore_for_file: must_be_immutable
+class HistorylistItemWidget extends StatelessWidget {HistorylistItemWidget(this.historylistItemModelObj, {Key? key}) : super(key: key);
+
+HistorylistItemModel historylistItemModelObj;
+
+@override Widget build(BuildContext context) { return Row(mainAxisAlignment: MainAxisAlignment.center, children: [IconButton(onPressed: () {}, constraints: BoxConstraints(minHeight: 63.adaptSize, minWidth: 63.adaptSize), padding: EdgeInsets.all(0), icon: Container(width: 63.adaptSize, height: 63.adaptSize, decoration: BoxDecoration(color: theme.colorScheme.onError, borderRadius: BorderRadius.circular(12.h)), padding: EdgeInsets.all(21.h), child: CustomImageView(imagePath: historylistItemModelObj?.lightBulb))), Padding(padding: EdgeInsets.only(left: 20.h, top: 6.v, bottom: 6.v), child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Opacity(opacity: 0.8, child: Text(historylistItemModelObj.lamp!, style: theme.textTheme.bodyLarge)), SizedBox(height: 1.v), Wrap(runSpacing: 14.v, spacing: 14.h, children: List<Widget>.generate(ref.watch(historylistItemNotifier).historylistItemModelObj?.kitchen1ItemList.length ?? 0, (index) {Kitchen1ItemModel model = ref.watch(historylistItemNotifier).historylistItemModelObj?.kitchen1ItemList[index] ?? Kitchen1ItemModel(); return Kitchen1ItemWidget(model, onSelectedChipView1: (value) {ref.read(historyNotifier.notifier).onSelectedChipView1(index, value);});}))])), Spacer(), Opacity(opacity: 0.2, child: Padding(padding: EdgeInsets.only(top: 2.v, bottom: 45.v), child: Text(historylistItemModelObj.duration!, style: theme.textTheme.bodySmall)))]); } 
+ }

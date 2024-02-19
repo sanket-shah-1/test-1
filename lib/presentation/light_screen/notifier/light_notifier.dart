@@ -1,0 +1,5 @@
+import 'package:equatable/equatable.dart';import '../../../core/app_export.dart';import '../models/light_model.dart';import '../models/lightgrid_item_model.dart';import '../models/lightlist_item_model.dart';part 'light_state.dart';final lightNotifier = StateNotifierProvider<LightNotifier, LightState>((ref) => LightNotifier(LightState(lightModelObj: LightModel(lightlistItemList: [LightlistItemModel(lights: ImageConstant.imgLamp1, lights1: "Lights"), LightlistItemModel(lights: ImageConstant.imgTelevision, lights1: "TV"), LightlistItemModel(lights: ImageConstant.imgScienceThermometer, lights1: "Temp"), LightlistItemModel(lights: ImageConstant.imgRealEstate1, lights1: "Window")], lightgridItemList: [LightgridItemModel(frontDoor: "Front Door"), LightgridItemModel(frontDoor: "Halleway"), LightgridItemModel(frontDoor: "Themorty"), LightgridItemModel(frontDoor: "Halleway Front")]))));
+/// A notifier that manages the state of a Light according to the event that is dispatched to it.
+class LightNotifier extends StateNotifier<LightState> {LightNotifier(LightState state) : super(state);
+
+ }
