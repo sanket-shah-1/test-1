@@ -1,59 +1,120 @@
+# NodeJS,Mongoose,Express Project in MVC Architecture
 
-# sanket_s_application1
-### Table of contents
-- [System requirements](#system-requirements)
-- [Figma design guidelines for better UI accuracy](#figma-design-guideline-for-better-accuracy)
-- [Check the UI of the entire app](#app-navigations)
-- [Application structure](#project-structure)
-- [How to format your code?](#how-you-can-do-code-formatting)
-- [How you can improve code readability?](#how-you-can-improve-the-readability-of-code)
-- [Libraries and tools used](#libraries-and-tools-used)
-- [Support](#support)
+**Supported version of nodejs >= 12**,
+**Supported version of mongoose >= 6**
 
-### System requirements
+## About 
+- This is a Node application, developed using MVC pattern with Node.js, ExpressJS, and Mongoose. 
+- MongoDB database is used for data storage, with object modeling provided by Mongoose.
 
-Dart SDK Version 2.18.0 or greater.
-Flutter SDK Version 3.3.0 or greater.
+## Initial
+1. ```$ npm install```
+2. ```$ npm start```
+3. Credentials
 
-### Figma design guidelines for better UI accuracy
+	- One user with User role,
+	# Default User credentials
+	**username** : Laron68
+	**password** : d1N7gYqlSNwIxc5
 
-Read our guidelines to increase the accuracy of design-to-code conversion by optimizing Figma designs.
-https://docs.dhiwise.com/docs/Designguidelines/intro
+	- One user with Admin role,
+	# Default Admin credentials
+	**username** : Era20
+	**password** : WMdHr6w6jbJL3yI
 
-### Check the UI of the entire app
+## How to use generated APIs:
+[Click here to visit documentation](<https://docs.dhiwise.com/docs/node/generate-apis/> "API Documentation")
 
-Check the UI of all the app screens from a single place by setting up the 'initialRoute'  to AppNavigation in the AppRoutes.dart file.
+## How to run with Docker ? :
+- if you have docker file you can execute following command
+- build the image
+	```$ docker build --pull --rm -f "Dockerfile" -t <imageName>:latest "." ```
+- execute the command
+	```$ docker run -p 3000:3000 <imageName> ```
 
-### Application structure
-After successful build, your application structure should look like this:
-                    
+
+## Folder structure:
 ```
-.
-├── android                         - It contains files required to run the application on an Android platform.
-├── assets                          - It contains all images and fonts of your application.
-├── ios                             - It contains files required to run the application on an iOS platform.
-├── lib                             - Most important folder in the application, used to write most of the Dart code..
-    ├── main.dart                   - Starting point of the application
-    ├── core
-    │   ├── app_export.dart         - It contains commonly used file imports
-    │   ├── constants               - It contains static constant class file
-    │   └── utils                   - It contains common files and utilities of the application
-    ├── presentation                - It contains widgets of the screens
-    ├── routes                      - It contains all the routes of the application
-    └── theme                       - It contains app theme and decoration classes
-    └── widgets                     - It contains all custom widget classes
+  ├── app.js       - starting point of the application
+  ├── config
+  │   └── db.js    - contains api database connection
+  ├── constants    - contains commonly used constants 
+  ├── controllers               
+  │   └── platform - contains business logic
+  ├── jobs         - cron jobs
+  ├── models       - models of application
+  ├── postman      - postman collection files
+  ├── routes       - contains all the routes of application
+  ├── services     - contains commonly used services
+  ├── views        - templates
+  └── utils        - contains utility functions    
 ```
-### How to format your code?
 
-- if your code is not formatted then run following command in your terminal to format code
-  ```
-  dart format .
-  ```
+## Detail Description of Files and folders
 
-### How you can improve code readability?
+1. app.js
+- entry point of application.
 
-Resolve the errors and warnings that are shown in the application.
+2. config
+- passport strategy files
+- database connection files
 
-### Support
+3. constants
+- constants used across application.
 
-If you have any problems or questions, go to our Discord channel, where we will help you as quickly as possible: https://discord.com/invite/rFMnCG5MZ7
+4. controllers
+- Controller files that contains Business logic
+```
+	├── controller
+		├── platform
+			└── modelNameController.js        - contains CRUD Operations
+```
+
+5. jobs
+- Cron jobs
+
+6. middleware
+- Middleware files for authentication, authorization and role-access.
+
+7. models
+- Database models 
+
+8. postman
+- Postman collection of APIs (Import this JSON in Postman to run the APIs)
+
+9. public 
+- Assets used in application
+
+10. routes
+```
+	├── routes
+		├── platform
+			├── modelNameRoutes.js   - contains CRUD operation routes
+			└── index.js             - exports model Routes
+		└── index.js                 - exports platform routes
+
+```
+- index.js file, exports platform routes, imported into app.js to access all the routes.
+
+11. services
+```
+	├── services
+		├── jobs                     - cron jobs
+		└── auth.js                  - Authentication module service
+
+```
+
+12. utils
+```
+	├── utils
+		├── validations              - joi validations files for every model
+		├── dbService.js             - Database functions 
+		├── messages.js              - Messages used in sending response 
+		├── responseCode.js          - response codes 
+		└── validateRequest.js       - validate request based on model schema
+
+```
+
+13. env files
+- You can add credentials and port, database values as per your environment(Development/Production).
+- If you are running test environment then test cases will run using test database,and its configuration is there inside app.js
