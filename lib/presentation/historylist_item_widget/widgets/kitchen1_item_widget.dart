@@ -1,0 +1,4 @@
+import '../../../core/app_export.dart';class Kitchen1ItemWidget extends StatelessWidget {const Kitchen1ItemWidget({Key? key}) : super(key: key);
+
+@override Widget build(BuildContext context) { return Theme(data: ThemeData(canvasColor: Colors.transparent), child: RawChip(padding: EdgeInsets.symmetric(horizontal: 12.h, vertical: 5.v), showCheckmark: false, labelPadding: EdgeInsets.zero, label: Text("Kitchen", style: TextStyle(color: appTheme.gray900.withOpacity(0.42), fontSize: 10.fSize, fontFamily: 'Poppins', fontWeight: FontWeight.w400)), selected: false, backgroundColor: Colors.transparent, selectedColor: appTheme.gray900.withOpacity(0.2), shape: RoundedRectangleBorder(side: BorderSide(color: theme.colorScheme.onPrimaryContainer.withOpacity(0.1), width: 1.h), borderRadius: BorderRadius.circular(4.h)), onSelected: (value) {})); } 
+ }
